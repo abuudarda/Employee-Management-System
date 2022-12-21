@@ -16,6 +16,7 @@ final class Update_Employee extends Add_Employee implements ActionListener{
     String id_emp;
 
     Update_Employee(String idaa){
+        
         super(0);
         frame=new JFrame("update Employee details");
         frame.setVisible(true);
@@ -23,13 +24,17 @@ final class Update_Employee extends Add_Employee implements ActionListener{
         frame.setLocation(450,250);
         frame.setBackground(Color.white);
         frame.setLayout(null);
-
+        Color back = new Color(37, 54, 64);
+        Color red = new Color(255, 111,114);
+        Color cyan = new Color(23, 187,159);
+        Color grey = new Color(145, 159,170);
+        Color blue = new Color(101, 169,252);
+        Color yellow = new Color(203, 163, 48);
         id_emp=idaa;    
         idd15=new JLabel();
         idd15.setBounds(0,0,900,500);
         idd15.setLayout(null);
-        ImageIcon img=new ImageIcon(ClassLoader.getSystemResource("employee/Images/update.jpg"));
-        idd15.setIcon(img);
+
 
         idd8 = new JLabel("Update Employee Detail:");
         idd8.setBounds(50,10,500,50);
@@ -122,11 +127,15 @@ final class Update_Employee extends Add_Employee implements ActionListener{
 
         bb0=new JButton("update");
         bb0.setBounds(250,400,100,30);
+        bb0.setBackground(red);
+        bb0.setForeground(Color.BLACK);
         bb0.addActionListener(this);
         idd15.add(bb0);
 
         bb1=new JButton("Cancel");
         bb1.setBounds(450,400,100,30);
+        bb1.setBackground(blue);
+        bb1.setForeground(Color.BLACK);
         bb1.addActionListener(this);
         idd15.add(bb1);
 
@@ -172,7 +181,7 @@ final class Update_Employee extends Add_Employee implements ActionListener{
         if(ae.getSource()==bb0 && i==1){
             try{
                 connector con = new connector();
-                String str = "update employee set name='"+tt1.getText()+"',fname='"+tt2.getText()+"',age='"+age+"',dob='"+dat+"',address='"+tt3.getText()+"',phone='"+tt4.getText()+"',email_id='"+tt5.getText()+"',education='"+tt6.getText()+"',post='"+tt7.getText()+"',code='"+tt8.getText()+"',emp_id='"+tt9.getText()+"' where emp_id='"+id_emp+"'";
+                String str = "update employee set name='"+tt1.getText()+"',fatherr_name='"+tt2.getText()+"',age='"+age+"',dob='"+dat+"',address='"+tt3.getText()+"',phone='"+tt4.getText()+"',email_id='"+tt5.getText()+"',education='"+tt6.getText()+"',post='"+tt7.getText()+"',code='"+tt8.getText()+"',emp_id='"+tt9.getText()+"' where emp_id='"+id_emp+"'";
                 con.s.executeUpdate(str);
                 con.s.executeUpdate(str);
                 JOptionPane.showMessageDialog(null,"successfully updated");
